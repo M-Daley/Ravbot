@@ -8,4 +8,6 @@ client.connect()
 
 // Register event handlers
 client.on('connected', onConnectHandler)
-client.on('message', (target, context, message, self) => { onMessageHandler(target, context, message, self, client) })
+client.on('message', (target, context, message, self) => {
+    onMessageHandler(target, context, message, self, client)
+})
