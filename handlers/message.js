@@ -16,7 +16,7 @@ const onMessageHandler = (target, context, msg, self, client) => {
 
     switch(commandName) {
         case `${prefix}dice`:
-            client.say(target, diceRoll(target))
+            client.say(target, diceRoll(context.username))
             logger(commandName, target)
             break
 
