@@ -1,4 +1,3 @@
-const { client } = require("tmi.js")
 const prefix = process.env.COMMAND_PREFIX
 const diceRoll = require('../commands/dice')
 const pronouns = require('../commands/pronouns')
@@ -8,14 +7,16 @@ const logger = require('../utils/logger')
 
 // TODO: Create types for switch statement... maybe just redux?
 
-const onMessageHandler = (target, context, msg, self) => {
+const onMessageHandler = (target, context, msg, self, client) => {
     if (self) return
 
     const commandName = msg.trim()
 
+    console.log(`Target: ${target}\n Diceroll: ${diceRoll(target)}`)
+
     switch(commandName) {
         case `${prefix}dice`:
-            client.say(target, diceRoll())
+            client.say(target, diceRoll(target))
             logger(commandName, target)
             break
 
