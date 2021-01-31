@@ -1,5 +1,5 @@
 function lgbtLink() {
-    return `[Link to LGBT Roster]`
+    return `LGBTubers Discord! https://discord.gg/Dg8gksFdBz`
 }
 
 module.exports = lgbtLink
