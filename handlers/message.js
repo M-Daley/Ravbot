@@ -1,9 +1,11 @@
-const prefix = process.env.COMMAND_PREFIX
-const diceRoll = require('../commands/dice')
-const pronouns = require('../commands/pronouns')
-const discordLink = require('../commands/discord')
-const lgbtLink = require('../commands/lgbt')
-const logger = require('../utils/logger')
+const prefix        = process.env.COMMAND_PREFIX
+const logger        = require('../utils/logger')
+
+const diceRoll      = require('../commands/dice')
+const pronouns      = require('../commands/pronouns')
+const discordLink   = require('../commands/discord')
+const lgbtLink      = require('../commands/lgbt')
+const abnormality   = require('../commands/abnormality')
 
 // TODO: Create types for switch statement... maybe just redux?
 
@@ -32,6 +34,11 @@ const onMessageHandler = (target, context, msg, self, client) => {
 
         case `${prefix}lgbt`:
             client.say(target, lgbtLink())
+            logger(commandName, target)
+            break
+
+        case `${prefix}abnormality`:
+            client.say(target, abnormality())
             logger(commandName, target)
             break
 
